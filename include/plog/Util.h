@@ -520,10 +520,10 @@ namespace plog
 #endif
         {
         public:
-            Singleton()
+            Singleton(T *instance)
             {
                 assert(!m_instance);
-                m_instance = static_cast<T*>(this);
+                m_instance = instance;
             }
 
             ~Singleton()

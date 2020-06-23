@@ -17,7 +17,9 @@ namespace plog
     class PLOG_LINKAGE Logger : public util::Singleton<Logger<instanceId> >, public IAppender
     {
     public:
-        Logger(Severity maxSeverity = none) : m_maxSeverity(maxSeverity)
+        Logger(Severity maxSeverity = none) :
+            util::Singleton<Logger<instanceId>>(this),
+            m_maxSeverity(maxSeverity)
         {
         }
 
